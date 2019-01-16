@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:background="@drawable/my_background">
+
+
+    <RelativeLayout
+        android:id="@+id/ll_texts_charging_discharging"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+
+            android:id="@+id/tv_stopwatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="8dp"
+            android:text="0"
+
+            android:textAlignment="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@color/primary_light" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <TextView
+                android:id="@+id/tv_discharging"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+
+                android:text="Discharging"
+                android:textAlignment="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/primary_light" />
+
+            <TextView
+
+                android:id="@+id/tv_charging"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+
+                android:text="Charging"
+                android:textAlignment="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/primary_light" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_speedometers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_texts_charging_discharging"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+
+
+        <com.github.anastr.speedviewlib.SpeedView
+
+
+            android:id="@+id/discharging_speedometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintTop_toTopOf="parent"
+            ads:sv_maxSpeed="0"
+            ads:sv_minSpeed="0"
+            ads:sv_speedTextPadding="10dp"
+            ads:sv_unitUnderSpeedText="true"
+
+            ads:sv_withTremble="false"
+            app:sv_centerCircleColor="@color/primary"
+            app:sv_highSpeedColor="@color/primary_dark"
+            app:sv_indicatorColor="@color/primary_light"
+            app:sv_lowSpeedColor="@color/primary_dark"
+            app:sv_lowSpeedPercent="50"
+            app:sv_mediumSpeedColor="@color/primary_dark"
+            app:sv_speedTextColor="@color/primary_light"
+            app:sv_speedTextSize="14sp"
+            app:sv_textColor="@color/primary_light"
+            app:sv_unit="mA"
+            app:sv_unitTextColor="@color/primary_light" />
+
+        <com.github.anastr.speedviewlib.SpeedView
+
+            android:id="@+id/charging_speedometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            ads:layout_constraintEnd_toEndOf="parent"
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintTop_toTopOf="parent"
+            ads:sv_maxSpeed="0"
+            ads:sv_minSpeed="0"
+            ads:sv_speedTextPadding="10dp"
+            ads:sv_speedTextPosition="BOTTOM_CENTER"
+            ads:sv_unitUnderSpeedText="true"
+            ads:sv_withTremble="false"
+            app:sv_centerCircleColor="@color/primary"
+            app:sv_highSpeedColor="@color/primary_dark"
+            app:sv_indicatorColor="@color/primary_light"
+            app:sv_lowSpeedColor="@color/primary_dark"
+            app:sv_lowSpeedPercent="50"
+            app:sv_mediumSpeedColor="@color/primary_dark"
+            app:sv_speedTextColor="@color/primary_light"
+            app:sv_speedTextSize="14sp"
+            app:sv_textColor="@color/primary_light"
+            app:sv_unit="mA"
+            app:sv_unitTextColor="@color/primary_light" />
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/adView"
+        android:layout_below="@id/ll_speedometers"
+        android:layout_alignParentStart="true">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id" />
+
+
+</RelativeLayout>
+

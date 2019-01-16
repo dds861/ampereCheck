@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Ampere Check</string>
+
+    <!--real banner id-->
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3941279894802307/7931676785</string>
+    <!--test banner id-->
+    <!--<string name="banner_ad_unit_id" translatable="false">	ca-app-pub-3940256099942544/6300978111</string>-->
+
+    <string name="BatteryPropertyCurrentNow">Instantaneous battery current in microamperes, as an integer.</string>
+
+    <string name="s0_status">Status</string>
+    <string name="s1_plugged">Plugged</string>
+    <string name="s2_health">Health</string>
+    <string name="s3_technology">Technology</string>
+    <string name="s4_model">Model</string>
+    <string name="s5_android_version">Android version</string>
+    <string name="s6_build_id">Build ID</string>
+    <string name="s7_millivolts">MilliVolts</string>
+    <string name="s8_volts">Volts</string>
+    <string name="s9_BatteryPropertyEnergyCounter">Battery remaining energy</string>
+    <string name="s10_BatteryPropertyChargeCounter">Battery capacity</string>
+    <string name="s11_BatteryPropertyCapacity">Remaining battery capacity</string>
+    <string name="s13_manufacturer">Manufacturer</string>
+    <string name="s14_temperature">Temperature</string>
+    <string name="sdk_version">SDK version</string>
+    <string name="chargeTimeRemaining">Charge Time Remaining</string>
+
+    <string name="s0_status_description">charging/discharging/full/not_charging/unknown</string>
+    <string name="s1_plugged_description">AC/USB/Wireless</string>
+    <string name="s2_health_description">cold/dead/good/overheat/over_voltage/unknown/unspecified_failure</string>
+    <string name="s3_technology_description">Technology of the current battery.</string>
+    <string name="s4_model_description">The end-user-visible name for the end product.</string>
+    <string name="s5_android_version_description">The base OS build the product is based on.</string>
+    <string name="s6_build_id_description">Information about the current build, extracted from system properties.</string>
+    <string name="s7_millivolts_description">Current battery milliVoltage level</string>
+    <string name="s8_volts_description">Current battery voltage level</string>
+    <string name="s9_BatteryPropertyEnergyCounter_description">Battery remaining energy in nanowatt-hours</string>
+    <string name="s10_BatteryPropertyChargeCounter_description">Battery capacity in milliampere-hours</string>
+    <string name="s11_BatteryPropertyCapacity_description">Remaining battery capacity as an integer percentage of total capacity (with no fractional part).</string>
+    <string name="s13_manufacturer_description">The manufacturer of the product/hardware.</string>
+    <string name="s14_temperature_description">Current battery temperature</string>
+    <string name="sdk_version_description">The SDK version of the software currently running on this hardware device.</string>
+    <string name="chargeTimeRemaining_description">An approximation for how much time (in minutes) remains until the battery is fully charged</string>
+    <string name="max_capacity">Maximum capacity</string>
+    <string name="max_capacity_description">Total Battery Capacity: Remaining_battery_capacity / Battery_capacity * 100</string>
+
+
+</resources>
