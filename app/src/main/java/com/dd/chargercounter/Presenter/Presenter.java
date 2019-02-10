@@ -13,7 +13,7 @@ public class Presenter implements IPresenter {
     private int minSpeedCharge = 0;
     private int maxSpeedCharge = 1;
     private int minSpeedDischarge = 0;
-    private int maxSpeedDischarge = 1;
+    private int maxSpeedDischarge = -1;
     private float maxVoltage = 1.0f;
 
 
@@ -83,23 +83,47 @@ public class Presenter implements IPresenter {
                 iView.setChargingTrembleOff();
 
 
-
                 //find max and min
                 if (ampereRate < 0
-                        && ampereRate >= minSpeedDischarge
-                        && minSpeedDischarge < maxSpeedDischarge) {
+                        && ampereRate <= maxSpeedDischarge
+                        && minSpeedDischarge > maxSpeedDischarge) {
                     maxSpeedDischarge = ampereRate;
-                    iView.setDischargingSpeedometerMaxSpeed(maxSpeedDischarge);
+                    iView.setDischargingSpeedometerMinSpeed(maxSpeedDischarge);
                 } else if (ampereRate < 0
-                        && minSpeedDischarge < maxSpeedDischarge) {
+                        && minSpeedDischarge == 0
+                        && ampereRate > maxSpeedDischarge) {
                     minSpeedDischarge = ampereRate;
-                    iView.setDischargingSpeedometerMinSpeed(this.minSpeedDischarge);
+                    iView.setDischargingSpeedometerMaxSpeed(minSpeedDischarge);
+                } else if (ampereRate < 0
+                        && ampereRate > minSpeedDischarge
+                        && minSpeedDischarge > maxSpeedDischarge) {
+                    minSpeedDischarge = ampereRate;
+                    iView.setDischargingSpeedometerMaxSpeed(minSpeedDischarge);
                 }
 
                 if (ampereRate < 0) {
                     iView.setDischargingSpeedToSpeedometer(ampereRate, 10000);
                 }
                 break;
+
+
+//                //find max and min
+//                if (ampereRate < 0
+//                        && ampereRate >= minSpeedDischarge
+//                        && minSpeedDischarge < maxSpeedDischarge) {
+//                    maxSpeedDischarge = ampereRate;
+//                    iView.setDischargingSpeedometerMaxSpeed(maxSpeedDischarge);
+//                } else if (ampereRate < 0
+//                        && ampereRate < minSpeedDischarge
+//                        && minSpeedDischarge < maxSpeedDischarge) {
+//                    minSpeedDischarge = ampereRate;
+//                    iView.setDischargingSpeedometerMinSpeed(this.minSpeedDischarge);
+//                }
+//
+//                if (ampereRate < 0) {
+//                    iView.setDischargingSpeedToSpeedometer(ampereRate, 10000);
+//                }
+//                break;
 
             case BatteryManager.BATTERY_STATUS_CHARGING:
             case BatteryManager.BATTERY_STATUS_FULL:
@@ -115,9 +139,15 @@ public class Presenter implements IPresenter {
                     maxSpeedCharge = ampereRate;
                     iView.setChargingSpeedometerMaxSpeed(maxSpeedCharge);
                 } else if (ampereRate > 0
+                        && minSpeedCharge == 0
+                        && ampereRate < maxSpeedCharge) {
+                    minSpeedCharge = ampereRate;
+                    iView.setChargingSpeedometerMinSpeed(minSpeedCharge);
+                } else if (ampereRate > 0
+                        && ampereRate < minSpeedCharge
                         && minSpeedCharge < maxSpeedCharge) {
                     minSpeedCharge = ampereRate;
-                    iView.setChargingSpeedometerMinSpeed(this.minSpeedCharge);
+                    iView.setChargingSpeedometerMinSpeed(minSpeedCharge);
                 }
 
                 if (ampereRate > 0) {
